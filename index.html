@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <style>
+      /* STYLES */
+      * {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        padding: 10px;
+        margin: 0;
+        color: #3c3c3c;
+        background-color: #f5f5f5;
+        font-size: 15px;
+      }
+      body {
+        text-align: center;
+        margin-top: 10vh;
+      }
+
+      #toDoList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #087e8b;
+        width: 500px;
+        height: fit-content;
+        min-height: 500px;
+        padding: 50px 0;
+      }
+
+      #toDoList input {
+        width: 350px;
+        height: 45px;
+        border: 2px solid #3c3c3c;
+        padding: 0;
+      }
+
+      .taskDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 10px;
+      }
+
+      #addTaskBtn {
+        font-weight: 600;
+        padding: 10px 20px;
+      }
+
+      .textStyle {
+        height: 40px;
+        width: 325px;
+        font-size: 13px;
+        list-style: none;
+        text-align: left;
+        border-radius: 2px;
+        border: 1px solid grey;
+        margin: 0;
+      }
+      #taskList .taskDiv .checkboxToDo {
+        height: 40px;
+        width: 40px;
+      }
+      .deleteButton {
+        height: 40px;
+        width: 40px;
+      }
+      .deleteButton:hover {
+        background-color: #ff5a5f;
+        border: 1px solid grey;
+      }
+      .deleteButton:active {
+        background-color: #df4e53;
+      }
+      #taskList {
+        background-color: #087e8b;
+      }
+    </style>
+    <!-- centering elements -->
+    <center>
+      <div id="toDoList">
+        <div>
+          <!-- Input field with limitaton -->
+          <input
+            id="inputTaskField"
+            name="inputTaskField"
+            type="text"
+            maxlength="30"
+            required
+          />
+          <button id="addTaskBtn">Add Task</button>
+        </div>
+        <ul id="taskList"></ul>
+      </div>
+    </center>
+    <script src="script.js"></script>
+  </body>
+</html>
