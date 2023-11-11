@@ -16,8 +16,6 @@
 
 // console.log(JSON.stringify(person.address));
 
-let taskList = document.querySelector("#taskList");
-
 let addTaskBtn = document.querySelector("#addTaskBtn");
 
 addTaskBtn.addEventListener("click", createTask);
