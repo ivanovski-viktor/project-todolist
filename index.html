@@ -4,96 +4,124 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <script
+      src="https://kit.fontawesome.com/485b754357.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <style>
       /* STYLES */
       * {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         padding: 10px;
         margin: 0;
-        color: #3c3c3c;
-        background-color: #f5f5f5;
+        color: #d7f9ff;
         font-size: 15px;
       }
       body {
         margin-top: 10vh;
       }
 
+      .taskDiv {
+        background-color: #afcbffa9;
+        border-radius: 10px;
+      }
+
+      /* FLEX ALIGN ITEMS input */
+      #toDoList div {
+        display: flex;
+        align-items: center;
+      }
+
       #toDoList {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #087e8b;
+        background-color: #0e1c36;
         width: 500px;
         height: fit-content;
         min-height: 500px;
-        padding: 50px 0;
+        padding: 30px 20px;
+        border-radius: 25px;
       }
 
       #toDoList input {
         width: 350px;
         height: 45px;
-        border: 2px solid #3c3c3c;
-        padding: 0;
+        border: 3px solid #afcbff;
+        background-color: #0e1c36;
+        color: #d7f9ff;
+        border-radius: 20px;
+        padding: 0 20px 0 20px;
       }
 
       .taskDiv {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         gap: 10px;
+        margin-bottom: 10px;
       }
 
+      /* ADD BTN  */
       #addTaskBtn {
-        font-weight: 600;
-        padding: 10px 20px;
+        font-size: 35px;
+      }
+      #addTaskBtn:hover {
+        color: #afcbff;
       }
 
-      .textStyle {
-        height: 40px;
-        width: 325px;
-        font-size: 13px;
-        list-style: none;
+      .textParagraph {
+        width: 300px;
+        overflow-wrap: break-word;
+        height: auto;
         text-align: left;
-        border-radius: 2px;
-        border: 1px solid grey;
-        margin: 0;
       }
       #taskList .taskDiv .checkboxToDo {
         height: 40px;
         width: 40px;
+        order: 3;
+        accent-color: #afcbff;
+        margin-right: 10px;
       }
+
       .deleteButton {
         height: 40px;
         width: 40px;
-      }
-      .deleteButton:hover {
-        background-color: #ff5a5f;
-        border: 1px solid grey;
-      }
-      .deleteButton:active {
-        background-color: #df4e53;
+        order: 2;
       }
       #taskList {
-        background-color: #087e8b;
+        background-color: #0e1c36;
+      }
+
+      /* DELETE BUTTON STYLING */
+      #taskList a {
+        font-size: 2rem;
+        margin-bottom: -2px;
+      }
+      #taskList a:hover {
+        color: #ff5a5f;
+      }
+      .completedTask {
+        background-color: rgba(127, 255, 212, 0.479);
       }
     </style>
     <!-- centering elements -->
     <center>
       <div id="toDoList">
+        <h1>ADD A TASK:</h1>
         <div>
           <!-- Input field with limitaton -->
           <input
             id="inputTaskField"
             name="inputTaskField"
             type="text"
-            maxlength="30"
+            maxlength="50"
             required
           />
-          <button id="addTaskBtn">Add Task</button>
+          <i id="addTaskBtn" class="fa-solid fa-circle-plus"></i>
         </div>
         <ul id="taskList"></ul>
       </div>

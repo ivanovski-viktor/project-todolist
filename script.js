@@ -1,57 +1,55 @@
-// console.log("Hi!");
-
-// const person = {
-//   age: 23,
-//   name: "Jon",
-//   address: {
-//     city: 1,
-//     place: "b",
-//   },
-// };
-
-// console.log(person);
-// // Object.freeze(person); - Freezes object and makes it immutable(values cannot be changed)
-
-// person.age = 30;
-
-// console.log(JSON.stringify(person.address));
-
+// SELECTING ELEMENTS
 let addTaskBtn = document.querySelector("#addTaskBtn");
+let taskList = document.querySelector("#taskList");
 
 addTaskBtn.addEventListener("click", createTask);
 
 function createTask() {
-  let taskList = document.querySelector("#taskList");
+  // GETTING THE VALUE OF INPUT FIELD
   let inputTaskField = document.querySelector("#inputTaskField").value;
   if (!inputTaskField) {
     alert("ERROR!");
     return;
   }
-  let task;
-  task = inputTaskField;
 
+  // CREATING ELEMENTS AND ASSIGNING CLASSES
   let taskDiv = document.createElement("div");
   taskDiv.classList.add("taskDiv");
   taskList.appendChild(taskDiv);
+
+  let textParagraph = document.createElement("p");
+  textParagraph.classList.add("textParagraph");
+
+  let deleteButton = document.createElement("a");
+  deleteButton.classList.add("fa-solid", "fa-trash");
 
   let checkboxToDo = document.createElement("input");
   checkboxToDo.type = "checkbox";
   checkboxToDo.classList.add("checkboxToDo");
 
-  let textStyle = document.createElement("li");
-  textStyle.classList.add("textStyle");
-
-  let deleteButton = document.createElement("button");
-  deleteButton.classList.add("deleteButton");
-  deleteButton.textContent = "X";
-
   taskDiv.appendChild(checkboxToDo);
-  taskDiv.appendChild(textStyle);
+  taskDiv.appendChild(textParagraph);
   taskDiv.appendChild(deleteButton);
+  textParagraph.textContent = inputTaskField;
+  // inputTaskField.value = "";
+  // inputTaskField.textContent = "";
+  document.querySelector("#inputTaskField").value = "";
 
-  textStyle.textContent = task;
-  deleteButton.addEventListener(
-    "click",
-    () => (taskDiv.style.display = "none")
-  );
+  // DELETING THE TEXT IN INPUT FIELD
+
+  deleteButton.addEventListener("click", onClickDelete);
+  checkboxToDo.addEventListener("click", onClickCompleted);
 }
+
+function onClickCompleted(event) {
+  let completedTask = event.target.parentElement;
+  completedTask.classList.toggle("completedTask");
+}
+function onClickDelete(event) {
+  let createdItem = event.target.parentElement;
+  let itemParent = createdItem.parentElement;
+  itemParent.removeChild(createdItem);
+  // Go brise noviot element od negoviot parent element
+}
+
+// namesto completed/deleted da bidat icons! - fontawesome za ikoni koristenje!
