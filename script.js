@@ -27,15 +27,14 @@ function createTask() {
   checkboxToDo.type = "checkbox";
   checkboxToDo.classList.add("checkboxToDo");
 
+  // ASSIGNING ELEMENTS TO PARENT AS CHILDREN
   taskDiv.appendChild(checkboxToDo);
   taskDiv.appendChild(textParagraph);
   taskDiv.appendChild(deleteButton);
   textParagraph.textContent = inputTaskField;
-  // inputTaskField.value = "";
-  // inputTaskField.textContent = "";
-  document.querySelector("#inputTaskField").value = "";
 
   // DELETING THE TEXT IN INPUT FIELD
+  document.querySelector("#inputTaskField").value = "";
 
   deleteButton.addEventListener("click", onClickDelete);
   checkboxToDo.addEventListener("click", onClickCompleted);
@@ -46,9 +45,8 @@ function onClickCompleted(event) {
   completedTask.classList.toggle("completedTask");
 }
 function onClickDelete(event) {
-  let createdItem = event.target.parentElement;
-  let itemParent = createdItem.parentElement;
-  itemParent.removeChild(createdItem);
+  let createdItem = event.target.closest("div");
+  createdItem.remove(createdItem);
   // Go brise noviot element od negoviot parent element
 }
 
